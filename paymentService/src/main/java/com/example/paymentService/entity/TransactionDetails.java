@@ -30,5 +30,5 @@ public class TransactionDetails {
     @Column(name = "STATUS")
     private String paymentStatus;
     @Column(name = "AMOUNT")
-    private Long amount;
+    private Double amount;
 }

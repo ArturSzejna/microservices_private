@@ -18,6 +18,7 @@
   <modules>
     <module>serviceRegistry</module>
     <module>configServer</module>
+    <module>cloudGateway</module>
 
     <module>productService</module>
     <module>orderService</module>

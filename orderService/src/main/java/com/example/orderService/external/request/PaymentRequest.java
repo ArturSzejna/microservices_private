@@ -1,5 +1,6 @@
-package com.example.paymentService.model;
+package com.example.orderService.external.request;
 
+import com.example.orderService.model.PaymentMode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

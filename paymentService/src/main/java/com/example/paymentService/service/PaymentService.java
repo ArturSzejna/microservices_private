@@ -1,6 +1,7 @@
 package com.example.paymentService.service;
 
 import com.example.paymentService.entity.TransactionDetails;
+import com.example.paymentService.model.PaymentDetailsResponse;
 import com.example.paymentService.model.PaymentRequest;
 import com.example.paymentService.repository.TransactionDetailsRepository;
 import lombok.extern.log4j.Log4j2;
@@ -33,5 +34,17 @@ public class PaymentService {
         transactionDetailsRepository.save(transactionDetails);
         log.info("Transaction Completed with Id: {}", transactionDetails.getId());
         return transactionDetails.getId();
+    }
+
+    public PaymentDetailsResponse getPaymentDetailsByOrderId(Long orderId) {
+        TransactionDetails transactionDetails = transactionDetailsRepository.findByOrderId(orderId)
+                .orElseThrow(() -> new RuntimeException("Payment not found for orderId: " + orderId));
+
+        return PaymentDetailsResponse.builder()
+                .paymentStatus(transactionDetails.getPaymentStatus())
+                .referenceNumber(transactionDetails.getReferenceNumber())
+                .amount(transactionDetails.getAmount())
+                .paymentDate(transactionDetails.getPaymentDate())
+                .build();
     }
 }

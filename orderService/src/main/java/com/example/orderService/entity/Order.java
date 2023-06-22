@@ -28,7 +28,7 @@ public class Order {
     @Column(name = "STATUS")
     private String orderStatus;
     @Column(name = "TOTAL_AMOUNT")
-    private Long amount;
+    private Double amount;
 
 
 }
